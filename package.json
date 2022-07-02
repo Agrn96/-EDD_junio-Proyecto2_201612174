@@ -1,0 +1,23 @@
+{
+  "name": "-edd_junio-proyecto2_201612174",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agrn96/-EDD_junio-Proyecto2_201612174.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Agrn96/-EDD_junio-Proyecto2_201612174/issues"
+  },
+  "homepage": "https://github.com/Agrn96/-EDD_junio-Proyecto2_201612174#readme",
+  "dependencies": {
+    "js-sha256": "^0.9.0"
+  }
+}

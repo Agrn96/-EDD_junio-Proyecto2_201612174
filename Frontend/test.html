@@ -1,0 +1,383 @@
+<nav class="navbar navbar-dark bg-dark mb-5" id="nav1">
+    <input type="image"
+        src="https://png.pngtree.com/element_our/png_detail/20190103/cat-book-vector-logo-design-png_309891.jpg"
+        width="40" height="50" class="navbar-brand mb-1 d-inline-block align-top" onclick="returnHome()" />
+    <input type="button" class="navbar-brand mb-1" onclick="" value="Leer Autores" />
+    <a class="navbar-brand mb-1" >Main</a>
+    <a class="navbar-brand mb-1" >Acerca de</a>
+    <a class="navbar-brand mb-1" >Contactenos</a>
+    <a class="navbar-brand mb-1" >Informacion</a>
+</nav>
+<nav class="navbar navbar-dark bg-dark mb-5" id="nav2" style="display:none">
+    <a class="navbar-brand" href="index.html">
+        <img src="https://png.pngtree.com/element_our/png_detail/20190103/cat-book-vector-logo-design-png_309891.jpg"
+            width="30" height="30" class="d-inline-block align-top" alt="" />
+        Catsbooks
+    </a>
+    <a class="navbar-brand mb-1" href="main.html">Main</a>
+    <a class="navbar-brand mb-1" href="acercade.html">Acerca de</a>
+    <a class="navbar-brand mb-1" href="contacto.html">Contactenos</a>
+    <a class="navbar-brand mb-1" href="informacion.html">Informacion</a>
+</nav>
+<nav class="navbar navbar-dark bg-dark mb-5" id="nav3" style="display:none">
+    <a class="navbar-brand" href="index.html">
+        <img src="https://png.pngtree.com/element_our/png_detail/20190103/cat-book-vector-logo-design-png_309891.jpg"
+            width="30" height="30" class="d-inline-block align-top" alt="" />
+        Catsbooks
+    </a>
+    <a class="navbar-brand mb-1" href="main.html">Main</a>
+    <a class="navbar-brand mb-1" href="acercade.html">Acerca de</a>
+    <a class="navbar-brand mb-1" href="contacto.html">Contactenos</a>
+    <a class="navbar-brand mb-1" href="informacion.html">Informacion</a>
+</nav>
+<div id="page1">
+    <!--Login-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mb-5">Login</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginNickname">User</label>
+                        <input type="text" class="form-control" id="loginNickname" aria-describedby="nicknameHelp"
+                            placeholder="Enter your User" />
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword"
+                            placeholder="Enter your password" />
+                    </div>
+                    <input id="adminOrNot" type="checkbox" class="form-check-input"
+                        style="margin-left:10px ;"></input>
+                    <label class="form-check-label" for="flexCheckDefault" style="margin-left: 25px">Admin</label>
+                    <button id="loginButton" type="submit" class="btn btn-primary w-100">
+                        Login
+                    </button>
+                </form>
+            </div>
+            <div class="col">
+                <h1 class="text-center mb-5">Signup</h1>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupDPI">DPI</label>
+                        <input type="text" class="form-control" id="signupDPI" placeholder="Enter your DPI" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" class="form-control" id="signupName"
+                            placeholder="Enter your Full Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signupUser">Username</label>
+                        <input type="text" class="form-control" id="signupUser" placeholder="Enter your Username" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupCorreo">Correo Electronico</label>
+                        <input type="text" class="form-control" id="signupCorreo"
+                            placeholder="Enter your Email Address">
+                        </input>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" class="form-control" id="signupPassword"
+                            placeholder="Enter a password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="number" class="form-control" id="signupPhone"
+                            placeholder="Enter your phone Number" />
+                    </div>
+                    <button id="signupButton" type="submit" class="btn btn-primary w-100">
+                        Signup
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page2" style="display:none">
+    <!--Admin display buttons to load files and to show the structures-->
+    <h1>JavaScript SHA256 Hash Example Using CryptoJS</h1>
+    <br><strong>Enter the Sample Text : </strong><input id='plainText' type='text' />
+    <br><br><strong>Hashed Text (SHA256) : </strong><span id='hashText'></span>
+    <br><br><button onclick="generateHash()">Calculate Hash</button>
+
+    <form id="formPeliculas">
+        <label class="btn btn-primary custom" for="myfile2">Peliculas: </label>
+        <input class="btn btn-info" type="file" id="myfile2" accept=".json">
+        <button class="btn btn-outline-primary">Upload</button>
+    </form>
+    <form id="formActores">
+        <label class="btn btn-primary custom" for="myfile1">Actors: </label>
+        <input type="file" class="btn btn-info" id="myfile1" accept=".json">
+        <button class="btn btn-outline-primary">Upload</button>
+    </form>
+    <form id="formUsuarios">
+        <label class="btn btn-primary custom" for="myfile3">Users: </label>
+        <input type="file" class="btn btn-info" id="myfile3" accept=".json">
+        <button class="btn btn-outline-primary">Upload</button>
+    </form>
+    <form id="formCategorias">
+        <label class="btn btn-primary custom" for="myfile4">Categorias: </label>
+        <input type="file" class="btn btn-info" id="myfile4" accept=".json">
+        <button class="btn btn-outline-primary">Upload</button>
+    </form>
+
+    <p id="log"></p>
+    <div id="mynetwork"></div>
+
+    <div id="graph" />
+</div>
+<div id="page3" style="display:none">
+    <!--Customer display the front page and the option to view the books and order books-->
+    <div id="peliculas_Info">
+
+    </div>
+
+
+</div>
+<script type="text/Javascript"> //Script to generate hash
+    function generateHash()
+    {
+        var plainText = document.getElementById('plainText').value;
+        var hashText = CryptoJS.SHA256(plainText);   
+        document.getElementById("hashText").innerHTML = hashText;
+    }        
+</script>
+<script type="text/javascript" src="../Estructuras/ABB_Actors.js"></script>
+<script type="text/javascript" src="../Estructuras/Arbol_Merkle.js"></script>
+<script type="text/javascript" src="../Estructuras/AVL_Pelicula.js"></script>
+<script type="text/javascript" src="../Estructuras/List_Users.js"></script>
+<script type="text/javascript" src="../Estructuras/TH_Categorias.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    // create a network
+    var container = document.getElementById("mynetwork");
+    var DOTstring = merkle()
+    var parsedData = vis.parseDOTNetwork(DOTstring);
+    var data = {
+        nodes: parsedData.nodes,
+        edges: parsedData.edges
+    }
+    var options = {
+        nodes: {
+            widthConstraint: 80,
+        },
+        layout: {
+            hierarchical: {
+                parentCentralization: true,
+                direction: 'DU',        // UD, DU, LR, RL
+                sortMethod: 'directed',  // hubsize, directed
+                shakeTowards: 'roots'  // roots, leaves                    
+            },
+        },
+    };
+    var network = new vis.Network(container, data, options);
+</script>
+<script>
+    //Login
+    let page1 = document.getElementById("page1");
+    let page2 = document.getElementById("page2");
+    let page3 = document.getElementById("page3");
+
+    let loginForm = document.getElementById("loginForm");
+    let loginNickname = document.getElementById("loginNickname");
+    let loginPassword = document.getElementById("loginPassword");
+    let loginButton = document.getElementById("loginButton");
+    let logTest = document.getElementById("adminOrNot");
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    });
+    loginButton.addEventListener("click", (e) => { //Change API to regular JS
+        temp = users.login(loginNickname.value, loginPassword.value);
+        userInfo = temp;
+        //console.log("ghy", temp);
+        if (temp === false) {
+            console.log("Wrong Information Entered");
+        } else if (logTest.checked === false) { // Test function for swapping between pages
+            console.log("Yes, You're In Pleb");
+            page1.style.display = "none";
+            page3.style.display = "";
+            page2.style.display = "none";
+        } else {
+            console.log("Yes, You're In Boss");
+            page1.style.display = "none";
+            page2.style.display = "";
+            page3.style.display = "none";
+        }
+        document.getElementById("loginForm").reset();
+    });
+
+    function returnHome() {
+        console.log("Home Time");
+        page1.style.display = "";
+        page2.style.display = "none";
+        page3.style.display = "none";
+    }
+
+    //Signup
+    let signupForm = document.getElementById("signupForm");
+    let signupDPI = document.getElementById("signupDPI");
+    let signupName = document.getElementById("signupName");
+    let signupUser = document.getElementById("signupUser");
+    let signupCorreo = document.getElementById("signupCorreo");
+    let signupPassword = document.getElementById("signupPassword");
+    let signupPhone = document.getElementById("signupPhone");
+    let signupButton = document.getElementById("signupButton");
+
+    signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    });
+
+    signupButton.addEventListener("click", (e) => {
+        users.insert(parseInt(signupDPI.value), signupName.value, signupUser.value, signupCorreo.value, signupPassword.value, signupPhone.value);
+        document.getElementById("signupForm").reset();
+
+    });
+
+    let divPeliculas = document.getElementById('#avl');
+    let divActores = document.getElementById('#graph_abb');
+    let divUsuarios = document.getElementById('#listaSimple');
+    let divCategorias = document.getElementById('#tablaHash');
+
+    //Upload Files Peliculas
+    let form1 = document.querySelector('#formPeliculas');
+    let file1 = document.querySelector('#myfile2');
+
+    function logFile1(event) {
+        let str = event.target.result;
+        let json = JSON.parse(str);
+        for (let i = 0; i < json.length; i++) {
+            peliculas.insertNode(json[i].id_pelicula, json[i].nombre_pelicula, json[i].descripcion, json[i].puntuacion_star, json[i].precio_Q);
+        }
+    }
+
+    function handleSubmit1(event) {
+        event.preventDefault();
+        if (!file1.value.length) return;
+        let reader = new FileReader();
+        reader.onload = logFile1;
+        reader.readAsText(file1.files[0]);
+        setTimeout(function () {
+            peliculas.graph("#graph");
+            load_Movies();
+        }, (1 * 1000));
+    }
+
+    form1.addEventListener('submit', handleSubmit1);
+
+    //Upload Files Actores
+    let form = document.querySelector('#formActores');
+    let file = document.querySelector('#myfile1');
+
+    function logFile(event) {
+        let str = event.target.result;
+        let json = JSON.parse(str);
+        for (let i = 0; i < json.length; i++) {
+            abb.insert(json[i].dni, json[i].nombre_actor, json[i].correo, json[i].descripcion);
+        }
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        if (!file.value.length) return;
+        let reader = new FileReader();
+        reader.onload = logFile;
+        reader.readAsText(file.files[0]);
+        setTimeout(function () {
+            abb.graph("#graph");
+        }, (1 * 1000));
+
+    }
+
+    form.addEventListener('submit', handleSubmit);
+
+    //Upload Files Usuarios
+    let form2 = document.querySelector('#formUsuarios');
+    let file2 = document.querySelector('#myfile3');
+
+    function logFile2(event) {
+        let str = event.target.result;
+        let json = JSON.parse(str);
+        for (let i = 0; i < json.length; i++) {
+            users.insert(json[i].dpi, json[i].nombre_completo, json[i].nombre_usuario, json[i].correo, json[i].contrasenia, json[i].telefono);
+        }
+    }
+
+    function handleSubmit2(event) {
+        event.preventDefault();
+        if (!file2.value.length) return;
+        let reader = new FileReader();
+        reader.onload = logFile2;
+        reader.readAsText(file2.files[0]);
+        setTimeout(function () {
+            users.graph("#graph");
+        }, (1 * 1000));
+    }
+
+    form2.addEventListener('submit', handleSubmit2);
+
+    //Upload Files Categorias
+    let form3 = document.querySelector('#formCategorias');
+    let file3 = document.querySelector('#myfile4');
+
+    function logFile3(event) {
+        let str = event.target.result;
+        let json = JSON.parse(str);
+        for (let i = 0; i < json.length; i++) {
+            tH_Cat.insert2(json[i].id_categoria, json[i].company);
+        }
+    }
+
+    function handleSubmit3(event) {
+        event.preventDefault();
+        if (!file3.value.length) return;
+        let reader = new FileReader();
+        reader.onload = logFile3;
+        reader.readAsText(file3.files[0]);
+        setTimeout(function () {
+            tH_Cat.graph("#graph");
+        }, (1 * 1000));
+    }
+
+    form3.addEventListener('submit', handleSubmit3);
+
+    //Additional functions
+    function load_Movies(){
+        load_Movies_Helper(peliculas.root);
+    };
+
+    function load_Movies_Helper(node){
+        if (node) {
+            load_Movies_Info(node);
+            this.preOrderHelper(node.left);
+            this.preOrderHelper(node.right);
+        }
+    }
+    function load_Movies_Info(node){
+        var element = document.createElement("h3");
+        var contenido = document.createElement("p");
+        var boton = document.createElement("button");
+        var newContent  = document.createTextNode(node.nombre_Pelicula);
+        var newContenido = document.createTextNode(node.descripcion);
+        var newBoton = document.createTextNode("Alquilar");
+        element.appendChild(newContent);
+        contenido.appendChild(newContenido);
+        boton.appendChild(newBoton);
+        let temp = document.getElementById("#peliculas_Info");
+        temp.innerHTML += element.outerHTML;
+        temp.innerHTML += contenido.outerHTML;
+        temp.innerHTML += boton.outerHTML;
+    }
+</script>
