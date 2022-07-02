@@ -154,8 +154,9 @@
         <button class="btn btn-outline-primary" onclick="showPreOrder()">Actores Pre Orden</button>
         <button class="btn btn-outline-primary" onclick="showPostOrder()">Actores Post Orden</button>
         <button class="btn btn-outline-primary" onclick="showMovies()">Mostrar Peliculas</button>
-        <button class="btn btn-outline-primary" onclick="showMoviesPre()">Mostrar Peliculas Pre</button>
-        <button class="btn btn-outline-primary" onclick="showMoviesPost()">Mostrar Peliculas Post</button>
+        <button class="btn btn-outline-primary" onclick="showMoviesPre()">Mostrar Peliculas Asc</button>
+        <button class="btn btn-outline-primary" onclick="showMoviesPost()">Mostrar Peliculas Desc</button>
+        <button class="btn btn-outline-primary" onclick="showCategories()">Mostrar Categorias</button>
         <div id="actores_Info"></div>
         <div id="peliculas_Info"></div>
         <div id="categoria_Info"></div>
@@ -175,6 +176,7 @@
     <script type="text/javascript" src="../Estructuras/AVL_Pelicula.js"></script>
     <script type="text/javascript" src="../Estructuras/List_Users.js"></script>
     <script type="text/javascript" src="../Estructuras/TH_Categorias.js"></script>
+    <script type="text/javascript" src="../Estructuras/List.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -223,26 +225,34 @@
             }
         }
 
-        function displayMoviePreO(temp) {
-            if (temp) {
-                load_Movies_Info(temp);
-                console.log("X", temp.nombre_Pelicula);
-                displayMoviePreO(temp.left);
-                displayMoviePreO(temp.right);
+        function displayMovieAsc() {
+            let current = sort.head;
+            let stop = false;
+            while (current) {
+                load_Movies_Info(current);
+                current = current.next;
+                stop = true;
+                if (current === sort.head && stop === true) {
+                    break;
+                }
             }
         }
 
-        function displayMoviePostO(temp) {
-            if(temp){
-            displayMoviePostO(temp.left);
-            displayMoviePostO(temp.right);
-            load_Movies_Info(temp);
-            console.log("y", temp.nombre_Pelicula);
+        function displayMovieDesc() {
+            let current = sort.fin;
+            let stop = false;
+            while (current) {
+                load_Movies_Info(current);
+                current = current.prev;
+                stop = true;
+                if (current === sort.fin && stop === true) {
+                    break;
+                }
             }
         }
 
         function load_Movies_Info(rend) {
-            console.log("z", rend.nombre_Pelicula);
+            console.log("z", rend.id_Pelicula);
             var movie_Name = document.createElement("h2");
             var movie_Info = document.createElement("p");
             var movie_Rent = document.createElement("button");
@@ -261,7 +271,9 @@
         function display_TH() {
             let temp = tH_Cat.head;
             while (temp) {
-                //console.log("Head: " + temp.id_Categoria);
+                if (temp.id_Categoria != null) {
+                    load_TH_Info(temp.id_Categoria, temp.company);
+                }
                 let temp_ = temp.list;
                 while (temp_) {
                     load_TH_Info(temp_.id_Categoria, temp.company);
@@ -306,7 +318,6 @@
             } else if (logTest.checked === false) { // Test function for swapping between pages
                 console.log("Yes, You're In Pleb");
                 load_Movies();
-                display_TH();
                 page1.style.display = "none";
                 page3.style.display = "";
                 page2.style.display = "none";
@@ -357,6 +368,7 @@
             let json = JSON.parse(str);
             for (let i = 0; i < json.length; i++) {
                 peliculas.insertNode(json[i].id_pelicula, json[i].nombre_pelicula, json[i].descripcion, json[i].puntuacion_star, json[i].precio_Q);
+                sort.insert(json[i].id_pelicula, json[i].nombre_pelicula, json[i].descripcion, json[i].puntuacion_star, json[i].precio_Q);
             }
         }
 
@@ -368,6 +380,7 @@
             reader.readAsText(file1.files[0]);
             setTimeout(function () {
                 peliculas.graph("#graph");
+                sort.BBS();
             }, (1 * 1000));
         }
 
@@ -504,16 +517,14 @@
 
         function showMoviesPre() {
             divPeliculas1.innerHTML = "";
-            setTimeout(function () {
-                displayMoviePreO(peliculas.root);
-            }, (1 * 1000));
+            displayMovieAsc();
             divCategorias1.style.display = "none";
             divActores1.style.display = "none";
             divPeliculas1.style.display = "";
         }
         function showMoviesPost() {
             divPeliculas1.innerHTML = "";
-            displayMoviePostO(peliculas.root);
+            displayMovieDesc();
             divCategorias1.style.display = "none";
             divActores1.style.display = "none";
             divPeliculas1.style.display = "";
@@ -544,6 +555,7 @@
         }
 
         function showCategories() {
+            display_TH();
             divActores1.style.display = "none";
             divPeliculas1.style.display = "none";
             divCategorias1.style.display = "";
