@@ -142,10 +142,10 @@ class Tabla_Hash {
             let temp_ = temp.list;
             if (temp.id_Categoria != null) {
                 str += "Head" + count + " -> List" + rand + ";\n";
-                str += "List" + rand + " [label=\"List: " + temp.id_Categoria + "\"];\n";
+                str += "List" + rand + " [label=\"" + temp.company + "\"];\n";
                 rand++;
                 while (temp_) {
-                    str += "List" + rand + " [label=\"List: " + temp_.id_Categoria + "\"];\n";
+                    str += "List" + rand + " [label=\" " + temp_.company + "\"];\n";
                     if (temp_ != null) {
                         str += "List" + (rand-1) + " -> List" + (rand) + ";\n";
                     }
@@ -154,7 +154,7 @@ class Tabla_Hash {
                 }
             }
             while (temp_) {
-                str += "List" + rand + " [label=\"List: " + temp_.id_Categoria + "\"];\n";
+                str += "List" + rand + " [label=\" " + temp_.company + "\"];\n";
                 if (temp_.list != null) {
                     str += "List" + rand + " -> List" + (rand + 1) + ";\n";
                 }
