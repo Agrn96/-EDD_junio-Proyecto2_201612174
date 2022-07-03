@@ -316,7 +316,6 @@
         signupButton.addEventListener("click", (e) => {
             users.insert(parseInt(signupDPI.value), signupName.value, signupUser.value, signupCorreo.value, signupPassword.value, signupPhone.value);
             document.getElementById("signupForm").reset();
-
         });
 
         let divGraph = document.getElementById('graph');
@@ -484,6 +483,7 @@
             divActores1.style.display = "none";
             divPeliculas1.style.display = "";
         }
+
         function showMoviesPost() {
             divPeliculas1.innerHTML = "";
             displayMovieDesc();
@@ -495,7 +495,6 @@
         function showInOrder() {
             divActores1.innerHTML = "";
             displayAIO();
-
             divCategorias1.style.display = "none";
             divActores1.style.display = "";
             divPeliculas1.style.display = "none";
@@ -508,6 +507,7 @@
             divPeliculas1.style.display = "none";
             divCategorias1.style.display = "none";
         }
+
         function showPostOrder() {
             divActores1.innerHTML = "";
             displayAPostO();
@@ -540,18 +540,13 @@
                 donurl.revokeObjectURL(url)
                 var data = canvas.toDataURL("image/svg");
                 var a = document.createElement('a')
-                a.download = 'GRAFICA-PROYECTOII.png'
+                a.download = 'Data_Structures.png'
                 a.href = data
                 a.click()
             }
             img.src = url
             canvas.style.display = 'none';
         });
-
-
     </script>
-
-
 </body>
-
 </html>
