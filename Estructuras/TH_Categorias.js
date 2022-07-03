@@ -133,7 +133,7 @@ class Tabla_Hash {
             temp = temp.next;
             count++;
         }
-        str += ";\n" + rowInfo + "};\n";
+        str += "[style=invis];\n" + rowInfo + "};\n";
 
         temp = this.head;
         count = 0;

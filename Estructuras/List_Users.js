@@ -119,7 +119,7 @@ class List_Users {
                 if (current === this.fin) {
                     str += "node" + counter + ";\n";
                 } else if (current.next) {
-                    str += "node" + counter + "-> node" + (counter + 1) + "[dir= \"both\" ];\n";
+                    str += "node" + counter + "-> node" + (counter + 1) + ";\n";
                 }
                 current = current.next;
                 counter++;
@@ -197,5 +197,5 @@ class List_Users {
 
 var users = new List_Users(); // Linked List to hold users
 
-users.insert(2354168452525, "Wilfred Perez", "Wilfred", "Wilfred@gmail.com", "123", "+502 (123) 123-4567");
+users.insert(2354168452525, "Wilfred Perez", "EDD", "Wilfred@gmail.com", "123", "+502 (123) 123-4567");
 users.printListData();

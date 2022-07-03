@@ -116,6 +116,11 @@
     </div>
     <div id="page2" style="display:none">
         <!--Admin display buttons to load files and to show the structures-->
+        <h1>JavaScript SHA256 Hash Example Using CryptoJS</h1>
+        <br><strong>Enter the Sample Text : </strong><input id='plainText' type='text' />
+        <br><br><strong>Hashed Text (SHA256) : </strong><span id='hashText'></span>
+        <br><br><button onclick="generateHash()">Calculate Hash</button>
+
         <form id="formPeliculas">
             <label class="btn btn-primary custom" for="myfile2">Peliculas: </label>
             <input class="btn btn-info" type="file" id="myfile2" accept=".json">
@@ -137,10 +142,13 @@
             <button class="btn btn-outline-primary">Upload</button>
         </form>
         <button id="dwl" class="btn btn-outline-primary">Download</button>
-        <canvas id="myCanvas" width="1000" height="1000" style="display: none"></canvas>
+        <canvas id="myCanvas" width="1000" height="1000"></canvas>
+        <p id="log"></p>
+        <div id="mynetwork"></div>
+
         <div id="graph"></div>
     </div>
-    <div id="page3" style="display: none">
+    <div id="page3" style="display:none">
         <!--Customer display the front page and the option to view the books and order books-->
         <button class="btn btn-outline-primary" onclick="showInOrder()">Actores En Orden</button>
         <button class="btn btn-outline-primary" onclick="showPreOrder()">Actores Pre Orden</button>
@@ -155,6 +163,14 @@
 
 
     </div>
+    <script type="text/Javascript"> //Script to generate hash
+        function generateHash()
+        {
+            var plainText = document.getElementById('plainText').value;
+            var hashText = CryptoJS.SHA256(plainText);   
+            document.getElementById("hashText").innerHTML = hashText;
+        }        
+    </script>
     <script type="text/javascript" src="../Estructuras/ABB_Actors.js"></script>
     <script type="text/javascript" src="../Estructuras/Arbol_Merkle.js"></script>
     <script type="text/javascript" src="../Estructuras/AVL_Pelicula.js"></script>
@@ -170,6 +186,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        // create a network
+        var container = document.getElementById("mynetwork");
+        var DOTstring = merkle()
+        var parsedData = vis.parseDOTNetwork(DOTstring);
+        var data = {
+            nodes: parsedData.nodes,
+            edges: parsedData.edges
+        }
+        var options = {
+            nodes: {
+                widthConstraint: 80,
+            },
+            layout: {
+                hierarchical: {
+                    parentCentralization: true,
+                    direction: 'DU',        // UD, DU, LR, RL
+                    sortMethod: 'directed',  // hubsize, directed
+                    shakeTowards: 'roots'  // roots, leaves                    
+                },
+            },
+        };
+        var network = new vis.Network(container, data, options);
+    </script>
     <script>
         function load_Movies() {
             load_Movies_Helper(peliculas.root);
@@ -214,19 +256,15 @@
             var movie_Name = document.createElement("h2");
             var movie_Info = document.createElement("p");
             var movie_Rent = document.createElement("button");
-            var movie_Rate = document.createElement("h4");
-            var newName = document.createTextNode(rend.nombre_Pelicula + " ID: " + rend.id_Pelicula + "\nPrecio: Q" + rend.precio_Q);
-            var newDesc = document.createTextNode(rend.descripcion);
-            var newRent = document.createTextNode("Rent");
-            var newRate = document.createTextNode("Rating: " + rend.puntuacion_Star);
-            movie_Name.appendChild(newName);
-            movie_Info.appendChild(newDesc);
-            movie_Rent.appendChild(newRent);
-            movie_Rate.appendChild(newRate);
+            var newContent = document.createTextNode(rend.nombre_Pelicula);
+            var newContenido = document.createTextNode(rend.descripcion);
+            var newBoton = document.createTextNode("Rent");
+            movie_Name.appendChild(newContent);
+            movie_Info.appendChild(newContenido);
+            movie_Rent.appendChild(newBoton);
             var temp_1 = document.getElementById("peliculas_Info");
             temp_1.innerHTML += movie_Name.outerHTML;
             temp_1.innerHTML += movie_Info.outerHTML;
-            temp_1.innerHTML += movie_Rate.outerHTML;
             temp_1.innerHTML += movie_Rent.outerHTML;
         }
 
